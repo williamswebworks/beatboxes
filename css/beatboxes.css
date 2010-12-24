@@ -1,0 +1,131 @@
+@import 'bbPadArray.css';
+
+/* iPad screen is 1024 by 768 pixels */
+
+html {
+	background: #000;
+	color: #000;
+	font-family: 'Helvetica Neue', sans-serif;
+	height: 100%;
+}
+
+	body {
+		height: 100%;
+		margin: 0;
+		outline: 1px solid white;
+	}
+
+		#beatboxes {
+			height: 100%;
+			position: relative;
+		}
+		
+			#drummer {
+				background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#222));
+				height: 850px;
+				padding-bottom: 20px;
+			}
+			
+				#drummer-controls {
+					height: 100px;
+					position: relative;
+					text-shadow: 0 1px 1px #999;
+				}
+				
+					#play,
+					#pause {
+						-webkit-appearance: none;
+						background: transparent;
+						border: 0;
+						color: #fff;
+						font-size: 72px;
+						height: 100px;
+						left: 50%;
+						margin: 0 0 0 -50px;
+						padding: 0;
+						position: absolute;
+						text-shadow: 0 -1px 1px #000;
+						top: 0;
+						width: 100px;
+					}
+					
+					#pause {
+						display: none;
+					}
+					
+					#drummer-volume,
+					#drummer-tempo {
+						left: 25px;
+						position: absolute;
+						text-align: center;
+						top: 35px;
+					}
+					
+					#drummer-tempo {
+						left: auto;
+						right: 25px;
+					}
+
+						#drummer-volume .track,
+						#drummer-tempo .track {
+							background: #444;
+							-webkit-border-radius: 12.5px;
+							-webkit-box-shadow:
+								0 3px 10px #000 inset,
+								0 1px 1px #999;
+							display: inline-block;
+							height: 25px;
+							margin: 0;
+							overflow: hidden;
+							position: relative;
+							vertical-align: middle;
+							width: 265px;
+						}
+						
+							.bbSlider .beforeThumb,
+							.bbSlider .afterThumb {
+								bottom: 0;
+								left: 0;
+								position: absolute;
+								right: 0;
+								top: 0;
+							}
+
+							#drummer-volume .thumb,
+							#drummer-tempo .thumb {
+								background: #999;
+								-webkit-border-radius: 12.5px;
+								-webkit-box-shadow:
+									0 -5px 0 #666 inset,
+									0 2px 1px #fff inset,
+									0 1px 3px #000;
+								height: 25px;
+								left: 0;
+								margin-left: -12.5px;
+								position: absolute;
+								top: 0;
+								-webkit-transform: scale(0.9);
+								width: 25px;
+							}
+
+						#drummer-volume .value,
+						#drummer-volume .units,
+						#drummer-tempo .value,
+						#drummer-tempo .units {
+							display: inline-block;
+							font-size: 12px;
+							font-weight: bold;
+							margin-top: 5px;
+						}
+						
+						#drummer-volume .units,
+						#drummer-tempo .units {}
+			
+			#keyboard {
+				background: -webkit-gradient(linear, left top, left bottom, from(#111), to(#222));
+				bottom: 0;
+				-webkit-box-shadow: 0 3px 25px #000 inset;
+				height: 110px;
+				position: absolute;
+				width: 100%;
+			}

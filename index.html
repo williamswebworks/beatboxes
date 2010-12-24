@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Beatboxes</title>
+
+		<script type="text/javascript">
+			djConfig = {
+				parseOnLoad: true,
+				baseUrl: './',
+				modulePaths: {
+					bb: 'js/bb'
+				}
+			};
+		</script>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			dojo.require('dojo.parser');
+			dojo.require('bb.Slider');
+			dojo.require('bb.PadArray');
+		</script>
+		
+		<link rel="stylesheet" href="css/beatboxes.css" />
+	</head>
+	
+	<body>
+		<div id="beatboxes">
+			<div id="drummer">
+				<div id="drummer-controls">
+					<button id="play">▶</button>
+					<button id="pause">■</button>
+	
+					<!--<button id="options">⚙</button>-->
+					<!--<button id="info">ℹ</button>-->
+
+					<input id="drummer-volume" dojoType="bb.Slider" min="0" max="100" step="5" units="%" />
+					<input id="drummer-tempo" dojoType="bb.Slider" min="0" max="240" value="120" step="10" units="BPM" />
+				</div>
+				
+				<div id="pads" dojoType="bb.PadArray"></div>
+			</div>
+			
+			<div id="keyboard">
+				<div id="keyboard-controls">
+					<div id="keyboard-volume">
+						<button class="decrease">-</button>
+						<div class="track"><div class="thumb"></div></div>
+						<button class="increase">+</button>
+						<div><span class="gauge">50</span><span class="units">%</span></div>
+					</div>
+
+					<div id="keyboard-transpose">
+						<button class="decrease">-</button>
+						<button class="increase">+</button>
+						<div><span class="gauge">440</span><span class="units">Hz</span></div>
+					</div>
+				</div>
+				<div id="keys">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
