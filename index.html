@@ -5,6 +5,14 @@
 		<meta charset="utf-8" />
 		<title>Beatboxes</title>
 
+		<meta name="author" content="Brian Carstensen <brian.carstensen@gmail.com>" />
+
+		<meta http-equiv="cache-control" content="no-cache, must-revalidate" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta name="viewport" content="width=device-width user-scalable=no" />
+
 		<script type="text/javascript">
 			djConfig = {
 				parseOnLoad: true,
@@ -20,7 +28,9 @@
 		<script type="text/javascript">
 			dojo.require('dojo.parser');
 			dojo.require('bb.Slider');
+			dojo.require('bb.DrumMachine');
 			dojo.require('bb.PadArray');
+			dojo.require('bb.Keyboard');
 		</script>
 		
 		<link rel="stylesheet" href="css/beatboxes.css" />
@@ -28,38 +38,21 @@
 	
 	<body>
 		<div id="beatboxes">
-			<div id="drummer">
+			<div id="drummer" jsid="dm" dojoType="bb.DrumMachine"
+				play="play"
+				pause="pause"
+				volume="drummer-volume"
+				tempo="drummer-tempo"
+				padArray="drummer-pads">
+				
 				<div id="drummer-controls">
 					<button id="play">▶</button>
 					<button id="pause">■</button>
-	
-					<!--<button id="options">⚙</button>-->
-					<!--<button id="info">ℹ</button>-->
-
-					<input id="drummer-volume" dojoType="bb.Slider" min="0" max="100" step="5" units="%" />
-					<input id="drummer-tempo" dojoType="bb.Slider" min="0" max="240" value="120" step="10" units="BPM" />
+					<input id="drummer-volume" dojoType="bb.Slider" min="0" max="100" value="100" step="5" units="%" />
+					<input id="drummer-tempo" dojoType="bb.Slider" min="0" max="360" value="120" step="10" units="BPM" />
 				</div>
 				
-				<div id="pads" dojoType="bb.PadArray"></div>
-			</div>
-			
-			<div id="keyboard">
-				<div id="keyboard-controls">
-					<div id="keyboard-volume">
-						<button class="decrease">-</button>
-						<div class="track"><div class="thumb"></div></div>
-						<button class="increase">+</button>
-						<div><span class="gauge">50</span><span class="units">%</span></div>
-					</div>
-
-					<div id="keyboard-transpose">
-						<button class="decrease">-</button>
-						<button class="increase">+</button>
-						<div><span class="gauge">440</span><span class="units">Hz</span></div>
-					</div>
-				</div>
-				<div id="keys">
-				</div>
+				<div id="drummer-pads" dojoType="bb.PadArray" samplesDir="samples" samples="kick.mp3, snare.mp3, tom-low.mp3, tom-high.mp3, hat-closed.mp3, hat-open.mp3, ride.mp3, crash.mp3"></div>
 			</div>
 		</div>
 	</body>

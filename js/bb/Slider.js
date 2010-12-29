@@ -28,22 +28,22 @@ dojo.declare('bb.Slider', [dijit._Widget, dijit._Templated], {
 			this.side = 'top';
 		}
 		
-		this.set('value', this.value);
-	
 		this.inherited(arguments);
 
 		if (!this.immediate) {
-			this.connect(this.beforeThumbNode, 'onmousedown', function(e) {dojo.stopEvent(e); this.stepDown();});
-			this.connect(this.afterThumbNode, 'onmousedown', function(e) {dojo.stopEvent(e); this.stepUp();});
+			this.connect(this.beforeThumbNode, 'mousedown', function(e) {dojo.stopEvent(e); this.stepDown();});
+			this.connect(this.afterThumbNode, 'mousedown', function(e) {dojo.stopEvent(e); this.stepUp();});
 		}
 
-		this.connect(this.trackNode, 'onmousedown', function(e) {this.mouseIsDown = true; this.dragTrack(e);});
-		this.connect(this.trackNode, 'onmousemove', this.dragTrack);
-		this.connect(document, 'onmouseup', function() {this.mouseIsDown = false;});
+		this.connect(this.trackNode, 'mousedown', function(e) {this._mouseIsDown = true; this.dragTrack(e);});
+		this.connect(this.trackNode, 'mousemove', this.dragTrack);
+		this.connect(document, 'mouseup', function() {this._mouseIsDown = false;});
+
+		setTimeout(dojo.hitch(this, function() {this.set('value', this.value);}), 100);
 	},
 	
 	dragTrack: function(e) {
-		if (!this.mouseIsDown) return;
+		if (!this._mouseIsDown) return;
 		
 		var value = e[this.axis] - dojo.coords(this.trackNode)[this.axis];
 		value = value / (dojo.coords(this.trackNode)[this.dim]);
@@ -76,5 +76,8 @@ dojo.declare('bb.Slider', [dijit._Widget, dijit._Templated], {
 		this.moveThumb((value - this.min) / (this.max - this.min));
 		this.valueNode.innerHTML = Math.round(value);
 		this.value = value;
-	}
+		this.onChange(value);
+	},
+	
+	onChange: function(value) {}
 });

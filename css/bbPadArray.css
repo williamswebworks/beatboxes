@@ -1,23 +1,38 @@
-.bbPadArray {}
+.bbPadArray {
+	text-align: center;
+}
 
 	.bbBeat {
 		display: inline-block;
 	}
 	
 		.bbPad {
+			-webkit-appearance: none;
 			background: #999;
 			border: 0;
-			-webkit-border-radius: 10px;
+			-webkit-border-radius: 5px;
 			-webkit-box-shadow:
 				0 -3px 0 #666 inset,
 				0 0 3px #fff inset,
 				0 1px 2px #000;
 			display: block;
-			height: 85px;
+			height: 40px;
+			padding: 0;
 			margin: 3px;
-			width: 85px;
+			width: 80px;
 		}
+				
+		.bbPad.playing {}
+
 		
 		.bbPad.lit {
 			background: #ff6;
+		}
+		
+		.bbPad.lit.playing {
+			background: #fff;
+			-webkit-box-shadow:
+				0 -3px 0 #cc9 inset,
+				0 0 3px #fff inset,
+				0 0 25px #ff6;
 		}
