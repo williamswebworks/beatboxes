@@ -39,7 +39,7 @@ dojo.declare('bb.Slider', [dijit._Widget, dijit._Templated], {
 		this.connect(this.trackNode, 'mousemove', this.dragTrack);
 		this.connect(document, 'mouseup', function() {this._mouseIsDown = false;});
 
-		setTimeout(dojo.hitch(this, function() {this.set('value', this.value);}), 100);
+		setTimeout(dojo.hitch(this, function() {this.set('value', this.value);}), 333);
 	},
 	
 	dragTrack: function(e) {

@@ -20,7 +20,7 @@ dojo.declare('bb.Pad', [dijit._Widget, dijit._Templated], {
 	toggle: function() {
 		this.set('lit', !this.get('lit'));
 	},
-		
+	
 	play: function() {
 		dojo.addClass(this.domNode, 'playing');
 
@@ -36,6 +36,7 @@ dojo.declare('bb.Pad', [dijit._Widget, dijit._Templated], {
 		
 		if (lit) {
 			this._sample = this._sample || new Audio(this.sample);
+			this._sample.play();
 		} else {
 			this._sample = null;
 		}
